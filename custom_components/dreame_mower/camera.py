@@ -441,13 +441,12 @@ class DreameMowerCameraEntity(DreameMowerEntity, Camera):
         map_index: int = 0,
     ) -> None:
         """Initialize a Dreame Mower Camera entity."""
-        super().__init__(coordinator, description)
-        self._generate_entity_id(ENTITY_ID_FORMAT)
-        self.content_type = PNG_CONTENT_TYPE
-        self.stream = None
         self._access_token_update_counter = 0
         self.access_tokens = collections.deque([], 2)
-        self.async_update_token()
+        super().__init__(coordinator, description)
+        Camera.__init__(self)
+        self._generate_entity_id(ENTITY_ID_FORMAT)
+        self.content_type = PNG_CONTENT_TYPE
         self._rtsp_to_webrtc = False
         self._should_poll = True
         self._last_updated = -1
@@ -658,7 +657,7 @@ class DreameMowerCameraEntity(DreameMowerEntity, Camera):
                     self._update_image(
                         self.device.get_map_for_render(self._map_data),
                         self.device.status.robot_status,
-                        self.device.status.station_status,
+                        getattr(self.device.status, 'station_status', 0),
                     )
                 )
         elif not self._default_map:
@@ -769,7 +768,7 @@ class DreameMowerCameraEntity(DreameMowerEntity, Camera):
                 self.device.get_map_for_render(self._map_data),
                 self._renderer.get_resources(self.device.capability) if include_resources else None,
                 self.device.status.robot_status,
-                self.device.status.station_status,
+                getattr(self.device.status, 'station_status', 0),
             )
         return "{}"
 

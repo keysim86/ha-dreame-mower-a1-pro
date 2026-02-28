@@ -288,7 +288,8 @@
           "auto_water_draining": "Auto water draining",
           "shortcut": "Shortcut",
           "monitoring": "Monitoring",
-          "monitoring_paused": "Monitoring paused"
+          "monitoring_paused": "Monitoring paused",
+          "mowing": "Mowing"
         }
       },
       "status": {

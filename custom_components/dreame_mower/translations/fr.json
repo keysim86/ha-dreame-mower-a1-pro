@@ -290,7 +290,8 @@
           "streaming_paused": "Diffusion interrompue",
           "shortcut": "Raccourci",
           "monitoring": "Surveillance",
-          "monitoring_paused": "Surveillance en pause"
+          "monitoring_paused": "Surveillance en pause",
+          "mowing": "En tonte"
         }
       },
       "status": {

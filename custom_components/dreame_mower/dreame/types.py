@@ -1616,6 +1616,7 @@ class Segment(Zone):
         self.neighbors = neighbors
         self.order = order
         self.cleaning_times = cleaning_times
+        self.cleaning_mode = cleaning_mode
         self.cleaning_route = None
         self.color_index = None
         self.floor_material = None
