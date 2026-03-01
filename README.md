@@ -12,15 +12,17 @@ Start, stop, and dock your mower, monitor battery and charging status, and more 
 | Entity | Type | What it does |
 |--------|------|--------------|
 | A1 Pro | Lawn Mower | Start, stop, return to dock |
+| Map | Camera | Mowing zone map with named zones and no-go areas |
 | Battery Level | Sensor | Current battery percentage |
 | State | Sensor | What the mower is doing (mowing, charging, idle, error) |
 | Charging Status | Sensor | Charging or not |
 | Firmware Version | Sensor | Installed firmware |
-| Do Not Disturb | Switch | Enable/disable DnD mode |
 | Cleaning Count | Sensor | Total number of mowing sessions |
 | Total Cleaning Time | Sensor | Cumulative mowing time (minutes) |
-| Total Cleaned Area | Sensor | Cumulative mowed area |
+| Total Cleaned Area | Sensor | Cumulative mowed area (m²) |
 | First Cleaning Date | Sensor | Date of the very first mow |
+| Do Not Disturb | Switch | Enable/disable DnD mode |
+| Zone Name | Select | Per-zone name (synced from Dreame app) |
 
 ## Installation
 
@@ -45,18 +47,6 @@ Use the same Dreame / Xiaomi account credentials as the Dreamehome app.
 ## Compatibility
 
 Tested and working on the **Dreame A1 Pro**. It may work on other Dreame robotic mowers — if you try it on a different model, please [open an issue](https://github.com/nicolasglg/dreame-mower-a1-pro/issues) to let me know how it goes!
-
-## Roadmap
-
-Features being worked on for future releases:
-
-- [ ] Mowing zone map display
-- [x] Mowing history and statistics
-- [ ] Schedule management from HA
-- [ ] Custom mowing zones
-- [ ] Mowing progress tracking
-
-Suggestions? [Open an issue](https://github.com/nicolasglg/dreame-mower-a1-pro/issues).
 
 ## Credits
 
