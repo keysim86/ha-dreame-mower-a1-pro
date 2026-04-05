@@ -194,13 +194,13 @@ class DreameMowerFlowHandler(ConfigFlow, domain=DOMAIN):
 
     async def async_step_reauth(self, user_input: Mapping[str, Any]) -> FlowResult:
         """Perform reauth upon an authentication error or missing cloud credentials."""
-        self.name = user_input[CONF_NAME]
-        self.host = user_input[CONF_HOST]
-        self.token = user_input[CONF_TOKEN]
-        self.username = user_input[CONF_USERNAME]
-        self.password = user_input[CONF_PASSWORD]
-        self.country = user_input[CONF_COUNTRY]
-        self.prefer_cloud = user_input[CONF_PREFER_CLOUD]
+        self.name = user_input.get(CONF_NAME)
+        self.host = user_input.get(CONF_HOST)
+        self.token = user_input.get(CONF_TOKEN)
+        self.username = user_input.get(CONF_USERNAME)
+        self.password = user_input.get(CONF_PASSWORD)
+        self.country = user_input.get(CONF_COUNTRY, "cn")
+        self.prefer_cloud = user_input.get(CONF_PREFER_CLOUD, False)
         self.account_type = user_input.get(CONF_ACCOUNT_TYPE, DREAMEHOME)
         return await self.async_step_reauth_confirm()
 
