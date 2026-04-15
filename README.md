@@ -3,6 +3,12 @@
 [![HACS](https://img.shields.io/badge/HACS-Custom-orange?style=flat-square)](https://hacs.xyz/)
 [![GitHub Release](https://img.shields.io/github/v/release/nicolasglg/dreame-mower-a1-pro?style=flat-square)](https://github.com/nicolasglg/dreame-mower-a1-pro/releases)
 
+> ⚠️ **Scope of support**
+>
+> I only own a **Dreame A1 Pro**, so that's the only model I can actively test and support. The integration is reported working on other Dreame mowers by the community (see the [compatibility table](#compatibility) below), but I can't fix model-specific issues for hardware I don't have.
+>
+> **MOVA mowers are not supported** — the login flow uses a different regional setup and I have no device to validate against. PRs are welcome if you want to add MOVA support.
+
 **Control your Dreame A1 Pro robotic lawn mower directly from Home Assistant.**
 
 Start, stop, and dock your mower, monitor battery and charging status, and more — all from your HA dashboard.
@@ -47,17 +53,18 @@ Use the same Dreame / Xiaomi account credentials as the Dreamehome app.
 
 ## Compatibility
 
-| Model | Status | Reported by |
-|-------|--------|-------------|
-| Dreame A1 Pro (`dreame.mower.g2422`) | Tested | @nicolasglg |
-| Dreame A1 (`dreame.mower.p2255`) | Should work | — |
-| Dreame A2 (`dreame.mower.g2408`) | Working | Community |
-| Dreame A2 1200 (`dreame.mower.g2568a`) | Working | Community |
-| Dreame A3 | Working | Community |
+| Model | Status | Notes |
+|-------|--------|-------|
+| Dreame A1 Pro (`dreame.mower.g2422`) | Officially supported | Tested by me on every release |
+| Dreame A1 (`dreame.mower.p2255`) | Community | Reported working |
+| Dreame A2 (`dreame.mower.g2408`) | Community | Reported working |
+| Dreame A2 1200 (`dreame.mower.g2568a`) | Community | Reported working |
+| Dreame A3 | Community | Reported working |
+| MOVA (any model) | Not supported | Login flow differs, I have no device to test |
 
-If you try it on a different model, please [open an issue](https://github.com/nicolasglg/dreame-mower-a1-pro/issues) to let me know how it goes!
+**"Officially supported"** means I test it on every release and fix issues you report. **"Community"** means other users have got it working but I can't debug model-specific issues without the hardware — PRs welcome.
 
-> **Tip:** If login fails with "unknown error" using a Dreame account, try selecting **Mova** instead. Both use the same cloud backend but some accounts work better with one or the other.
+If you try it on a different Dreame model, please [open an issue](https://github.com/nicolasglg/dreame-mower-a1-pro/issues) to let me know how it goes!
 
 ## Credits
 
