@@ -1,4 +1,4 @@
-# Dreame Mower A1 Pro
+# Dreame Mower
 
 [![Release](https://img.shields.io/github/v/release/keysim86/ha-dreame-mower-a1-pro?style=flat-square&label=release)](https://github.com/keysim86/ha-dreame-mower-a1-pro/releases)
 [![Downloads](https://img.shields.io/github/downloads/keysim86/ha-dreame-mower-a1-pro/total?style=flat-square&label=downloads&color=orange)](https://github.com/keysim86/ha-dreame-mower-a1-pro/releases)
@@ -33,7 +33,7 @@ Start, stop, and dock your mower, monitor battery and charging status, and more 
 1. Open HACS in Home Assistant
 2. Click the 3 dots menu > **Custom repositories**
 3. Add `keysim86/ha-dreame-mower-a1-pro` as **Integration**
-4. Search for and install **Dreame Mower A1 Pro**
+4. Search for and install **Dreame Mower**
 5. Restart Home Assistant
 6. Go to **Settings** > **Integrations** > **Add Integration** > **Dreame Mower**
 7. Restart and configure the integration
