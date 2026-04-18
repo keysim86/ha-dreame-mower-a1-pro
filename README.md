@@ -1,7 +1,8 @@
 # Dreame Mower A1 Pro
 
+[![Release](https://img.shields.io/github/v/release/keysim86/ha-dreame-mower-a1-pro?style=flat-square&label=release)](https://github.com/keysim86/ha-dreame-mower-a1-pro/releases)
+[![Downloads](https://img.shields.io/github/downloads/keysim86/ha-dreame-mower-a1-pro/total?style=flat-square&label=downloads&color=orange)](https://github.com/keysim86/ha-dreame-mower-a1-pro/releases)
 [![HACS](https://img.shields.io/badge/HACS-Custom-orange?style=flat-square)](https://hacs.xyz/)
-[![GitHub Release](https://img.shields.io/github/v/release/keysim86/ha-dreame-mower-a1-pro?style=flat-square)](https://github.com/keysim86/ha-dreame-mower-a1-pro/releases)
 
 **Control your Dreame A1 Pro robotic lawn mower directly from Home Assistant.**
 
