@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [1.1.2] - 2026-04-19
+
+### Fixed
+- Encje **Current Map** i **Current Map Data** (kamera) pokazują teraz `idle` zamiast `niedostępny` gdy urządzenie ma obsługę map (`capability.map = True`) ale dane mapy nie zostały jeszcze pobrane w bieżącej sesji
+
 ## [1.1.1] - 2026-04-19
 
 ### Fixed
