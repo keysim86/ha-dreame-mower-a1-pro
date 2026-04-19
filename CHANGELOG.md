@@ -1,5 +1,10 @@
 # Changelog
 
+## [Unreleased]
+
+### Fixed
+- Encja **Current Map** niedostępna gdy kosiarka jest zadokowana — warunek `located` nie uwzględniał stanu `docked`; dodano `or status.docked` w trzech miejscach w `camera.py`
+
 ## [1.0.1] - 2026-04-18
 
 ### Changed
