@@ -22,7 +22,7 @@ from homeassistant.components.camera import (
     TOKEN_CHANGE_INTERVAL,
 )
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import STATE_UNAVAILABLE, CONTENT_TYPE_MULTIPART
+from homeassistant.const import STATE_UNAVAILABLE, STATE_IDLE, CONTENT_TYPE_MULTIPART
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.entity import EntityCategory
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
@@ -557,7 +557,8 @@ class DreameMowerCameraEntity(DreameMowerEntity, Camera):
             self._error = self.device.status.error
         else:
             self.update()
-            self._state = STATE_UNAVAILABLE
+            if self._state == STATE_UNAVAILABLE and self.device and self.device.capability.map:
+                self._state = STATE_IDLE
         self.async_write_ha_state()
 
     async def async_camera_image(self, width: int | None = None, height: int | None = None) -> bytes | None:
