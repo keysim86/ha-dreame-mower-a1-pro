@@ -255,6 +255,13 @@ SENSORS: tuple[DreameMowerSensorEntityDescription, ...] = (
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     DreameMowerSensorEntityDescription(
+        property_key=DreameMowerProperty.TOTAL_RUNTIME,
+        icon="mdi:clock-time-eight-outline",
+        native_unit_of_measurement=UNIT_MINUTES,
+        device_class=SensorDeviceClass.DURATION,
+        entity_category=EntityCategory.DIAGNOSTIC,
+    ),
+    DreameMowerSensorEntityDescription(
         property_key=DreameMowerProperty.CLEANING_COUNT,
         icon="mdi:counter",
         native_unit_of_measurement=UNIT_TIMES,

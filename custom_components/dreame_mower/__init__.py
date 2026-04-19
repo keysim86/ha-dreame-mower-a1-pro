@@ -12,6 +12,7 @@ from .coordinator import DreameMowerDataUpdateCoordinator
 
 PLATFORMS = (
     Platform.LAWN_MOWER,
+    Platform.BINARY_SENSOR,
     Platform.CAMERA,
     Platform.SENSOR,
     Platform.SWITCH,

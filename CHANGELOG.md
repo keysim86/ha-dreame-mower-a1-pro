@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+### Added
+- Binary sensor **Mapa zapisana** (`has_saved_map`) — informuje czy kosiarka ma zapisaną mapę; widoczny tylko gdy urządzenie obsługuje mapy
+- Binary sensor **Zaplanowane koszenie** (`scheduled_clean`) — informuje czy aktywne jest zaplanowane koszenie
+- Sensor **Całkowity czas pracy** (`total_runtime`) — łączny czas pracy urządzenia w minutach (diagnostic)
+
 ### Fixed
 - Encja **Current Map** niedostępna gdy kosiarka jest zadokowana — warunek `located` nie uwzględniał stanu `docked`; dodano `or status.docked` w trzech miejscach w `camera.py`
 
