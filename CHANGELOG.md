@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-04-19
+
 ### Added
 - Binary sensor **Mapa zapisana** (`has_saved_map`) — informuje czy kosiarka ma zapisaną mapę; widoczny tylko gdy urządzenie obsługuje mapy
 - Binary sensor **Zaplanowane koszenie** (`scheduled_clean`) — informuje czy aktywne jest zaplanowane koszenie

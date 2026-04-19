@@ -28,6 +28,9 @@ Start, stop, and dock your mower, monitor battery and charging status, and more 
 | Total Cleaning Time | Sensor | Cumulative mowing time (minutes) |
 | Total Cleaned Area | Sensor | Cumulative mowed area (m²) |
 | First Cleaning Date | Sensor | Date of the very first mow |
+| Total Runtime | Sensor | Total device runtime (minutes) |
+| Has Saved Map | Binary Sensor | Whether the mower has a saved map |
+| Scheduled Clean | Binary Sensor | Whether a scheduled mowing is active |
 | Do Not Disturb | Switch | Enable/disable DnD mode |
 | Stop Mowing | Button | Stop current mowing task and return to dock |
 | Error notification | Persistent notification | Automatic alert when the mower reports an error (translated in FR/EN) |
