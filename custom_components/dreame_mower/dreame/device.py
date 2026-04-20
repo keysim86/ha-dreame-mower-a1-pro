@@ -1274,6 +1274,7 @@ class DreameMowerDevice:
                 self._map_manager._selected_map_id = 1
                 self._map_manager._current_map_id = 1
                 self._map_manager._ready = True
+                self._map_manager._map_data_changed()
                 _LOGGER.info(
                     "Map built from cloud data: %dx%d, %d zones, %d no-go areas",
                     width, height, len(segments), len(no_go_areas),
@@ -2439,6 +2440,12 @@ class DreameMowerDevice:
         if self._map_manager:
             self._map_manager.set_update_interval(self._map_update_interval)
             self._map_manager.set_device_running(self.status.running, self.status.docked and not self.status.started)
+
+            # Odswiezaj mape z chmury co 30s podczas koszenia (A1 Pro - brak strumieniowania MQTT)
+            if self.status.running and self.cloud_connected:
+                last = self._map_manager._map_data.last_updated if self._map_manager._map_data else 0
+                if not last or (time.time() - last) > 30:
+                    self._build_map_from_cloud_data()
 
         if self.cloud_connected:
             self._request_cleaning_history()

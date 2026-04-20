@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [1.1.4] - 2026-04-20
+
+### Fixed
+- `device.py`: `_build_map_from_cloud_data` nie wywoływał `_map_data_changed()` po ustawieniu danych — kamera nigdy nie dostawała powiadomienia o nowej mapie (`v=0` w URL)
+- `device.py`: mapa z chmury (MAP.0–MAP.27) była pobierana tylko raz przy inicjalizacji — podczas koszenia mapa nie była odświeżana; dodano odświeżanie co 30s gdy kosiarka kosi
+
 ## [1.1.3] - 2026-04-20
 
 ### Fixed
