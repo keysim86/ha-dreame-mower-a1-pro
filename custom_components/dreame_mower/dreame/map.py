@@ -348,7 +348,22 @@ class DreameMapMowerMapManager:
                 return True
             return False
 
-        self._request_map_from_cloud()
+        # Fallback dla urzadzen dreame_cloud bez obslugi strumieniowania map (np. A1 Pro):
+        # probuj pobrac mape przez wlasciwosc OBJECT_NAME z chmury
+        if self._protocol.dreame_cloud:
+            try:
+                object_name_result = self._protocol.cloud.get_properties(DIID(DreameMowerProperty.OBJECT_NAME))
+                if object_name_result and len(object_name_result) > 0:
+                    data = object_name_result[0]
+                    value = data.get(MAP_PARAMETER_VALUE)
+                    if value:
+                        _LOGGER.info("Fallback: pobieranie mapy przez OBJECT_NAME z chmury")
+                        self._add_cloud_map_data(None, value, data.get("updateDate"))
+                        return True
+            except Exception as ex:
+                _LOGGER.warning("Fallback OBJECT_NAME failed: %s", ex)
+        else:
+            self._request_map_from_cloud()
         return False
 
     def _request_missing_p_map(self) -> bool:

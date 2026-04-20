@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [1.1.5] - 2026-04-20
+
+### Fixed
+- `map.py`: `_request_i_map` — gdy akcja `REQUEST_MAP` nie zwraca danych (urządzenia dreame_cloud bez obsługi strumieniowania map, np. A1 Pro), dodano fallback przez `get_properties(OBJECT_NAME)` → `_add_cloud_map_data`; wcześniej fallback dla dreame_cloud był no-op
+
 ## [1.1.4] - 2026-04-20
 
 ### Fixed
