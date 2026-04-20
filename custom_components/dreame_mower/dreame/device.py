@@ -1093,19 +1093,34 @@ class DreameMowerDevice:
             return
 
         try:
-            map_keys = [f"MAP.{i}" for i in range(28)]
-            response = self._protocol.cloud.get_batch_device_datas(map_keys)
-            if not response:
+            raw_parts_by_idx = {}
+            for batch_start in range(0, 256, 32):
+                map_keys = [f"MAP.{i}" for i in range(batch_start, batch_start + 32)]
+                response = self._protocol.cloud.get_batch_device_datas(map_keys)
+                if not response:
+                    break
+                found_in_batch = False
+                for i in range(batch_start, batch_start + 32):
+                    val = response.get(f"MAP.{i}")
+                    if val:
+                        raw_parts_by_idx[i] = val
+                        found_in_batch = True
+                if not found_in_batch:
+                    break
+
+            if not raw_parts_by_idx:
                 _LOGGER.warning("No MAP data from cloud")
                 return
 
-            raw_parts = []
-            for i in range(28):
-                val = response.get(f"MAP.{i}")
-                if val:
-                    raw_parts.append(val)
-            if not raw_parts:
-                return
+            raw_parts = [raw_parts_by_idx[k] for k in sorted(raw_parts_by_idx)]
+            _LOGGER.info(
+                "MAP batch: %d chunks (keys %s..%s), total ~%d chars, preview: %s",
+                len(raw_parts),
+                min(raw_parts_by_idx),
+                max(raw_parts_by_idx),
+                sum(len(p) for p in raw_parts),
+                ("".join(raw_parts))[:200],
+            )
 
             raw_json = "".join(raw_parts)
             decoder = json.JSONDecoder()

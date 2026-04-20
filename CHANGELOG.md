@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [1.1.7] - 2026-04-20
+
+### Fixed
+- `device.py`: `_build_map_from_cloud_data` — zmieniono pobieranie chunków MAP.0-MAP.27 na dynamiczne (batche po 32, max 256 kluczy) + szczegółowe logowanie formatu danych; poprzedni zakres był za mały i JSON był obcięty
+
 ## [1.1.6] - 2026-04-20
 
 ### Fixed
