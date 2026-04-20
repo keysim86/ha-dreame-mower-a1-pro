@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [1.1.12] - 2026-04-20
+
+### Fixed
+- `device.py`: `_build_map_data_from_zones_json` — `"boundary": null` w JSON powodowało crash `'NoneType' object has no attribute 'get'`; zmieniono `map_json.get("boundary", {})` na `map_json.get("boundary") or {}`
+- `device.py`: `_build_map_data_from_zones_json` — dodano guard `if not isinstance(zone_data, dict): continue` dla wpisów mowingAreas gdzie `entry[1]` może być `None`
+
 ## [1.1.11] - 2026-04-20
 
 ### Added

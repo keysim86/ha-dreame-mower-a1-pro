@@ -1164,7 +1164,7 @@ class DreameMowerDevice:
                 _LOGGER.warning("MAP JSON: nieoczekiwany typ %s, preview: %s", type(map_json), raw_json[:200])
                 return None
 
-            boundary = map_json.get("boundary", {})
+            boundary = map_json.get("boundary") or {}
             bx1 = boundary.get("x1", 0)
             by1 = boundary.get("y1", 0)
             bx2 = boundary.get("x2", 0)
@@ -1186,6 +1186,9 @@ class DreameMowerDevice:
                     zone_id = entry.get("id", 1)
                     zone_data = entry
                 else:
+                    continue
+
+                if not isinstance(zone_data, dict):
                     continue
 
                 path = zone_data.get("path", [])
