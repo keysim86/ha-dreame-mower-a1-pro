@@ -1170,6 +1170,31 @@ class DreameMowerDevice:
             bx2 = boundary.get("x2", 0)
             by2 = boundary.get("y2", 0)
 
+            # gdy boundary null/zero — oblicz bbox z punktów stref
+            if bx1 == 0 and by1 == 0 and bx2 == 0 and by2 == 0:
+                all_xs, all_ys = [], []
+                for section_key in ("mowingAreas", "forbiddenAreas", "contours"):
+                    for entry in (map_json.get(section_key) or {}).get("value", []):
+                        if isinstance(entry, list) and len(entry) >= 2:
+                            zone_data = entry[1]
+                        elif isinstance(entry, dict):
+                            zone_data = entry
+                        else:
+                            continue
+                        if not isinstance(zone_data, dict):
+                            continue
+                        for pt in zone_data.get("path", []):
+                            if isinstance(pt, dict):
+                                all_xs.append(pt.get("x", 0))
+                                all_ys.append(pt.get("y", 0))
+                if all_xs and all_ys:
+                    margin = 200
+                    bx1 = min(all_xs) - margin
+                    by1 = min(all_ys) - margin
+                    bx2 = max(all_xs) + margin
+                    by2 = max(all_ys) + margin
+                    _LOGGER.info("MAP boundary obliczony z punktów: (%d,%d)-(%d,%d)", bx1, by1, bx2, by2)
+
             grid_size = 50
             width = max(1, (bx2 - bx1) // grid_size + 1)
             height = max(1, (by2 - by1) // grid_size + 1)

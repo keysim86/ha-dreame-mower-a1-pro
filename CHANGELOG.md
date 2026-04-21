@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [1.1.15] - 2026-04-21
+
+### Fixed
+- `device.py`: `_build_map_data_from_zones_json` — gdy `boundary: null` w JSON, wymiary mapy były 1×1 px (obraz niewidoczny); teraz bbox jest obliczany automatycznie z punktów stref + margines 200 jednostek
+
 ## [1.1.14] - 2026-04-20
 
 ### Changed
