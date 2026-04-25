@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [1.1.18] - 2026-04-25
+
+### Fixed
+- `device.py`: `_populate_stats_from_history` — paginacja przez `time_end` nie działała (API ignoruje ten parametr i zwraca te same zdarzenia); powrót do jednego zapytania z limitem 2000; dodano filtr `duration > 0` aby liczyć tylko zakończone sesje koszenia (nie zdarzenia startu czy zmiany statusu)
+
 ## [1.1.17] - 2026-04-25
 
 ### Fixed
